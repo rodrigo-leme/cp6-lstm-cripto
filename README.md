@@ -1,4 +1,4 @@
-# CP2 — Previsão de preço de criptomoeda com LSTM
+# CP6 — Previsão de preço de criptomoeda com LSTM
 
 **Integrante:** Rodrigo Leme — RM550266
 
