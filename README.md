@@ -1,4 +1,4 @@
-# CP2 — Previsão de preço de criptomoeda com LSTM
+# CP6 — Previsão de preço de criptomoeda com LSTM
 
 **Integrante:** Rodrigo Leme — RM550266
 
@@ -93,8 +93,8 @@ A janela de **12 horas** teve o menor erro da LSTM.
 - O `val_loss` para de cair depois das primeiras épocas, então treinar por mais épocas não melhora o modelo.
 - O baseline de persistência teve o menor erro em todos os casos (veja as Observações).
 
-### Gráficos
 
+<<<<<<< HEAD
 **Histórico coletado da API (a linha vermelha separa os 7 dias novos)**
 
 ![historico](resultados/01_historico.png)
@@ -116,3 +116,5 @@ A janela de **12 horas** teve o menor erro da LSTM.
 **Predição em dados novos + projeção das próximas 24 horas**
 
 ![predicao](resultados/06_predicao_dados_novos.png)
+=======
+>>>>>>> 1941d684505b1e572e17ea21c444320357421187
