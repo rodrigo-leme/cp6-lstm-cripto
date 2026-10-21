@@ -47,7 +47,7 @@ Entrada (24, 1)  →  LSTM (50 unidades)  →  Dense (1)  →  preço da próxim
 
 **Google Colab (mais fácil):** abra o `cp2_lstm_bitcoin.ipynb` no Colab e clique em *Executar tudo*. As bibliotecas já vêm instaladas.
 
-**Localmente:**
+**local:**
 
 ```bash
 pip install -r requirements.txt
@@ -94,7 +94,6 @@ A janela de **12 horas** teve o menor erro da LSTM.
 - O baseline de persistência teve o menor erro em todos os casos (veja as Observações).
 
 
-<<<<<<< HEAD
 **Histórico coletado da API (a linha vermelha separa os 7 dias novos)**
 
 ![historico](resultados/01_historico.png)
@@ -117,4 +116,3 @@ A janela de **12 horas** teve o menor erro da LSTM.
 
 ![predicao](resultados/06_predicao_dados_novos.png)
 =======
->>>>>>> 1941d684505b1e572e17ea21c444320357421187
