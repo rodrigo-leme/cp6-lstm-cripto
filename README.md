@@ -83,27 +83,3 @@ Execute as células em ordem. A pasta `resultados/` é criada automaticamente co
 |---|---|---|---|
 | LSTM | | | |
 | Persistência | | | |
-
-### Gráficos
-
-**Curva de aprendizado (loss / val_loss)**
-
-![loss](resultados/02_loss.png)
-
-**Previsão vs real no teste**
-
-![teste](resultados/03_teste_previsto_vs_real.png)
-
-**Experimentos com window_size**
-
-![experimentos](resultados/05_experimentos_rmse.png)
-
-**Predição em dados novos + projeção das próximas 24 horas**
-
-![predicao](resultados/06_predicao_dados_novos.png)
-
-## Observações
-
-- Em preços de hora em hora, o baseline de persistência costuma ter erro muito baixo, porque o preço varia pouco de uma hora para outra. Por isso ele é a referência principal para avaliar a LSTM.
-- A projeção de 24 horas usa cada previsão como entrada da seguinte, então o erro aumenta conforme se afasta da última hora real e a curva tende a ficar mais suave.
-- O projeto é acadêmico e não deve ser usado como recomendação de investimento.
