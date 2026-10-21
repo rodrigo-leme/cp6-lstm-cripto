@@ -60,26 +60,59 @@ Execute as células em ordem. A pasta `resultados/` é criada automaticamente co
 
 ## Principais resultados
 
-> Os valores abaixo são preenchidos após rodar o notebook (os dados mudam a cada execução, pois a API sempre devolve os últimos 90 dias).
+> Execução com dados de 23/07/2026 a 21/10/2026. Os números mudam a cada execução, porque a API sempre devolve os últimos 90 dias.
 
 ### Conjunto de teste (window_size = 24)
 
 | Modelo | MSE | RMSE (USD) | MAE (USD) |
 |---|---|---|---|
-| LSTM | | | |
-| Persistência | | | |
+| LSTM | 1.263.466 | 1.124,04 | 1.033,59 |
+| Persistência | 72.266 | 268,82 | 175,88 |
 
 ### Experimentos (RMSE no teste, USD)
 
 | window_size | LSTM | Média móvel | Persistência |
 |---|---|---|---|
-| 12 | | | |
-| 24 | | | |
-| 48 | | | |
+| 12 | **864,43** | 541,60 | 268,82 |
+| 24 | 1.124,04 | 722,17 | 268,82 |
+| 48 | 1.041,59 | 936,37 | 268,82 |
 
-### Dados novos (últimos 7 dias)
+A janela de **12 horas** teve o menor erro da LSTM.
+
+### Dados novos (últimos 7 dias: 14/10 a 21/10/2026)
 
 | Modelo | MSE | RMSE (USD) | MAE (USD) |
 |---|---|---|---|
-| LSTM | | | |
-| Persistência | | | |
+| LSTM | 607.412 | 779,37 | 663,03 |
+| Persistência | 88.080 | 296,78 | 193,60 |
+
+### Análise
+
+- A LSTM acompanha a **tendência** do preço, mas as previsões ficam um pouco **abaixo** do valor real.
+- O motivo principal é que no treino o preço variou entre US$ 62 mil e US$ 82 mil, e no teste chegou a US$ 87 mil. A LSTM tem dificuldade de prever valores fora da faixa que viu no treino.
+- O `val_loss` para de cair depois das primeiras épocas, então treinar por mais épocas não melhora o modelo.
+- O baseline de persistência teve o menor erro em todos os casos (veja as Observações).
+
+### Gráficos
+
+**Histórico coletado da API (a linha vermelha separa os 7 dias novos)**
+
+![historico](resultados/01_historico.png)
+
+**Curva de aprendizado (loss / val_loss)**
+
+![loss](resultados/02_loss.png)
+
+**Previsão vs real no teste**
+
+![teste](resultados/03_teste_previsto_vs_real.png)
+
+**Experimentos com window_size**
+
+![experimentos val_loss](resultados/04_experimentos_val_loss.png)
+
+![experimentos](resultados/05_experimentos_rmse.png)
+
+**Predição em dados novos + projeção das próximas 24 horas**
+
+![predicao](resultados/06_predicao_dados_novos.png)
